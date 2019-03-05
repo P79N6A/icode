@@ -1,0 +1,11 @@
+- hosts: soc
+  remote_user: tiger
+  tasks:
+  - name: deploy soc-be
+    git: repo=git@sysrepo.byted.org:SOC/soc_be.git dest=/home/tiger/soc_be version=master force=yes
+  - name: reset to current commit
+    command: git reset --hard {{sha}}
+    args:
+      chdir: /home/tiger/soc_be
+  - name: restart soc-be
+    command: systemctl restart --user soc.service
