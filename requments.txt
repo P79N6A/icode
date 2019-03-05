@@ -1,0 +1,7 @@
+django
+django-debug-toolbar
+djangorestframework
+django-rest-swagger
+django-filter
+django-import-export
+django-pure-pagination
